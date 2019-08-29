@@ -26,16 +26,11 @@ namespace CarDrive
                 Console.WriteLine($"Your car is {color} {brand}");
                 Console.WriteLine($"You have driven {car._mileage} km");
                 car.ServiceCheck();
-                if (car._service > 20000)
-                {
-                    Console.WriteLine("Your car needs service !");
-                }
-                Console.WriteLine();
-
                 Console.WriteLine("What do you want to do ? :");
                 Console.WriteLine("Press D to drive");
                 Console.WriteLine("Press S for car service");
-                Console.WriteLine("Press Q to guit");
+                Console.WriteLine("Press H to hack the mileage");
+                Console.WriteLine("Press Q to quit");
 
                 input = Console.ReadKey();
 
@@ -45,6 +40,12 @@ namespace CarDrive
                         Console.WriteLine("How many km would you like to drive ?");
                         var mileage = Int32.Parse(Console.ReadLine());
                         car.Drive(mileage);
+                        break;
+                    case "s":
+                        car.DoService();
+                        break;
+                    case "h":
+                        car.HackMileage();
                         break;
                     default:
                         break;

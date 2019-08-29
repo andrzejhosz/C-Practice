@@ -12,6 +12,7 @@ namespace CarDrive
         }
 
         public int _mileage;
+        public int _service;
 
         public int Drive(int mileage)
         {
@@ -19,11 +20,37 @@ namespace CarDrive
             return _mileage;
         }
 
-        public int _service;
-        
         public void ServiceCheck()
         {
             _service = _mileage;
+            if (_service > 20000)
+            {
+                Console.WriteLine("Your car needs service !");
+            }
         }
+
+        public void DoService()
+        {
+            _mileage = 0;
+        }
+
+        public int HackMileage()
+        {
+            Console.WriteLine("Enter secret password");
+            string pass = Console.ReadLine();
+            if (pass == "hackmileage")
+            {
+                Console.WriteLine("Insert current mileage:");
+                int _newmileage = Int32.Parse(Console.ReadLine());
+                _mileage = _newmileage;
+            }
+            else
+            {
+                Console.WriteLine("Wrong password! Press any button to continue");
+                Console.ReadKey();
+            }
+            return _mileage;
+        }
+        
     }
 }
